@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OrganizingLife Boards</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <div>
+          <p class="eyebrow">OrganizingLife</p>
+          <h1>Unified boards for your personal, finance, and work life</h1>
+          <p class="subtitle">
+            Scan Gmail + Outlook 365 to auto-create tasks and events with status, due date, and priority.
+          </p>
+        </div>
+        <div class="status-card">
+          <h2>Scanning status</h2>
+          <ul>
+            <li>
+              <span>Personal Gmail</span>
+              <span class="status-pill status-pill--active">Connected · Last scan 2 min ago</span>
+            </li>
+            <li>
+              <span>Work Outlook 365</span>
+              <span class="status-pill status-pill--pending">Needs OAuth approval</span>
+            </li>
+          </ul>
+          <button class="primary">Run manual scan</button>
+        </div>
+      </header>
+
+      <section class="integrations">
+        <h2>Email & calendar integrations</h2>
+        <div class="integration-grid">
+          <article>
+            <h3>Connect Gmail</h3>
+            <p>Import starred emails, labeled actions, and calendar invites into your personal board.</p>
+            <button>Manage Gmail connection</button>
+          </article>
+          <article>
+            <h3>Connect Outlook 365</h3>
+            <p>Sync flagged emails and meetings to automatically create work tasks with deadlines.</p>
+            <button>Authorize Outlook</button>
+          </article>
+          <article>
+            <h3>Priority rules</h3>
+            <p>Auto-tag high priority when senders are VIPs, invoices are due, or meeting time is near.</p>
+            <button>Review automation rules</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="boards">
+        <div class="board-header">
+          <div>
+            <h2>Your boards</h2>
+            <p>Switch between boards to review actionable tasks created from your inboxes.</p>
+          </div>
+          <div class="board-tabs" role="tablist">
+            <button class="tab active" data-board="Personal" role="tab">Personal</button>
+            <button class="tab" data-board="Finance" role="tab">Finance</button>
+            <button class="tab" data-board="Work" role="tab">Work</button>
+          </div>
+        </div>
+
+        <div class="board-layout">
+          <div class="task-column">
+            <h3>Tasks & events</h3>
+            <div class="task-list" id="taskList"></div>
+          </div>
+          <div class="task-column">
+            <h3>Add new task</h3>
+            <form id="taskForm" class="task-form">
+              <label>
+                Task
+                <input type="text" name="title" placeholder="Draft budget follow-up email" required />
+              </label>
+              <label>
+                Status
+                <select name="status" required>
+                  <option>Not started</option>
+                  <option>In progress</option>
+                  <option>Waiting</option>
+                  <option>Done</option>
+                </select>
+              </label>
+              <label>
+                Due date
+                <input type="date" name="dueDate" required />
+              </label>
+              <label>
+                Priority
+                <select name="priority" required>
+                  <option value="High">High</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </label>
+              <label>
+                Source
+                <select name="source" required>
+                  <option>Gmail</option>
+                  <option>Outlook 365</option>
+                  <option>Manual</option>
+                </select>
+              </label>
+              <button class="primary" type="submit">Add task</button>
+            </form>
+            <div class="insights">
+              <h4>Upcoming reminders</h4>
+              <ul>
+                <li>⚡ Finance board has 2 high-priority invoices due this week.</li>
+                <li>📅 Work board has 3 meetings that can be converted into tasks.</li>
+                <li>✅ Personal board cleared 5 tasks during the last scan.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
